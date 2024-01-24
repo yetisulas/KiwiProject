@@ -41,15 +41,11 @@ public class Kiwi {
     public void tests_whether_the_titles_are_visible_and_active() {
      homePage.visibleAndActiveTest();
     }
-    @Given("Click on the login link")
+    @Given("Click on login link and  the Google and verify that account not opened")
     public void click_on_the_login_link() {
     homePage.profileActiveTesting();
     }
-    @Given("Click on the Google and verify that account not opened")
-    public void click_on_the_google() {
-        homePage.profileActiveTesting();
 
-    }
     }
 
 
