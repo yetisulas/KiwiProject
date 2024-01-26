@@ -176,7 +176,7 @@ public class HomePage {
 
 
 
-    // aysegul
+
     @FindBy(xpath = "//*[@id=':rm:']")
     public WebElement thanksText;
     @FindBy (xpath = "//*[@data-test='feedbackButton']")
