@@ -207,9 +207,6 @@ public class HomePage {
     }
 
 
-    public HomePage() {
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
     public void goTokiwiUrl(String url){
         Driver.getDriver().get(ConfigReader.getProperty(url));
     }
