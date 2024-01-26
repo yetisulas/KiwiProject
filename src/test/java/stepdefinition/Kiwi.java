@@ -176,25 +176,12 @@ public class Kiwi {
 
 
     //Gulsah =>US_04
-    @Given("Choose where to go from where")
-    public void choose_where_to_go_from_where() {
-     homePage.FromCityButton.clear();
-        ReusableMethods.bekle(1);
-     homePage.FromCityButton.sendKeys(ConfigReader.getProperty("toCity")+ Keys.ENTER);
-        ReusableMethods.bekle(1);
-       // homePage.ToCityButton.clear();
-       // ReusableMethods.bekle(1);
-       // homePage.ToCityButton.sendKeys("Manchester"+Keys.ENTER);
-       // ReusableMethods.bekle(1);
+    @Given("Verify that the go-return and economy button is visible")
+    public void verify_that_the_go_return_and_economy_button_is_visible() {
+        homePage.GoReturnButton.isDisplayed();
+        homePage.EconomyButton.isDisplayed();
     }
-    @Given("Click on the Search button")
-    public void click_on_the_search_button() {
-     homePage.SearchButton.click();
-    }
-    @Given("Verify that the best,chepest and fastest button are visible")
-    public void verify_that_the_best_chepest_and_fastest_button_are_visible() {
 
-    }
     //US_06
     @Given("It is tested {string}, {string}, {string}, {string} in the Footer section are displayed.")
     public void it_is_tested_in_the_footer_section_are_displayed(String Company, String Platform, String Help, String Discover) {

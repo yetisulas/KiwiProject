@@ -172,14 +172,11 @@ public class HomePage {
 
     //Gulsah
 //US_04
-    @FindBy(xpath = "(//input[@placeholder='Şehir, havaalanı veya yer'])[1]")
-    public WebElement FromCityButton;
+    @FindBy(xpath = "(//*[text()='Gidiş Dönüş'])[1]")
+    public WebElement GoReturnButton;
 
-    @FindBy(xpath = "(//input[@placeholder='Şehir, havaalanı veya yer'])[2]")
-    public WebElement ToCityButton;
-
-    @FindBy(xpath = "(//div[normalize-space()='Keşfedin'])[1]")
-    public  WebElement SearchButton;
+    @FindBy(xpath = "(//*[text()='Ekonomi'])[2]")
+    public WebElement EconomyButton;
 
 //US_06
     @FindBy(xpath = "//h4[normalize-space()='Şirket']")
