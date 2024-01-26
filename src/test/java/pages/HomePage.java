@@ -1,5 +1,7 @@
 package pages;
 
+import io.cucumber.plugin.event.Node;
+import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -108,5 +110,28 @@ public class HomePage {
 
 
     }
+
+
+    // aysegul
+    @FindBy(xpath = "//h2[@id=':rq:']")
+    public WebElement thanksText;
+    @FindBy (xpath = "//*[@data-test='feedbackButton']")
+    public WebElement feedbackButton;
+    @FindBy (xpath = "//*[text()='3']")
+    public WebElement threePoint;
+
+    public void feedbackButtonClick(){
+        feedbackButton.click();
+        bekle(1);
+    }
+    public void pointCheck(){
+        threePoint.click();
+        bekle(1);
+        System.out.println(thanksText.getText());
+        bekle(1);
+        String actualText = thanksText.getText();
+        Assert.assertTrue(actualText.contains("Teşekkürler! Kabul ederseniz gelecekteki anketlerimizden biri için sizinle irtibata geçebiliriz."));
+    }
+
 
 }
