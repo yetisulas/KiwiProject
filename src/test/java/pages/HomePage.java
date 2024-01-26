@@ -109,4 +109,44 @@ public class HomePage {
 
     }
 
+    //Gulsah
+//US_04
+    @FindBy(xpath = "(//input[@placeholder='Şehir, havaalanı veya yer'])[1]")
+    public WebElement FromCityButton;
+
+    @FindBy(xpath = "(//input[@placeholder='Şehir, havaalanı veya yer'])[2]")
+    public WebElement ToCityButton;
+
+    @FindBy(xpath = "(//div[normalize-space()='Keşfedin'])[1]")
+    public  WebElement SearchButton;
+
+//US_06
+    @FindBy(xpath = "//h4[normalize-space()='Şirket']")
+    public  WebElement CompanyButton;
+
+    @FindBy(xpath = "//h4[normalize-space()='Platform']")
+    public  WebElement PlatformButton;
+
+    @FindBy(xpath = "//h4[normalize-space()='Yardım ve destek']")
+    public  WebElement YardimveDestekButton;
+
+    @FindBy(xpath = "//h4[normalize-space()='Keşfet']")
+    public  WebElement KesfetButton;
+
+    public void footerDisplayTest(){
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        bekle(1);
+
+        jse.executeScript("arguments[0].scrollIntoView(true);", instagramIcon);
+        bekle(2);
+        assertTrue(CompanyButton.isDisplayed());
+        bekle(1);
+        assertTrue(PlatformButton.isDisplayed());
+        bekle(1);
+        assertTrue(YardimveDestekButton.isDisplayed());
+        bekle(1);
+        assertTrue(KesfetButton.isDisplayed());
+        bekle(1);}
+
+
 }
