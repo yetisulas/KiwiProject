@@ -1,10 +1,19 @@
 package pages;
 
+
 import io.cucumber.plugin.event.Node;
 import org.junit.Assert;
+
+
+import org.openqa.selenium.support.PageFactory;
+import utilities.ConfigReader;
+import utilities.Driver;
+
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.WindowType;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -12,15 +21,20 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.List;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static utilities.ReusableMethods.bekle;
 import static utilities.ReusableMethods.switchToWindow;
 
+
 public class HomePage {
     Actions actions;
+    JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
 
     public HomePage() {
+
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
@@ -38,23 +52,71 @@ public class HomePage {
 
     @FindBy(xpath = "//*[text()='Kabul et']")
     public WebElement acceptCookies;
-    public void acceptCookie(){
+
+    @FindBy(xpath = "(//img[@title='Kiwi.com ucuz uçuşlar sunar'])[1]")
+    public WebElement kiviCom;
+
+    @FindBy(xpath = "(//div[text()='Seyahat'])[2]")
+    public WebElement seyahatElement;
+
+    @FindBy(xpath = "(//div[text()='Araçlar'])[2]")
+    public WebElement araclarElement;
+
+    @FindBy(xpath = "(//div[text()='Konaklamalar'])[2]")
+    public WebElement konaklamalarElement;
+
+    @FindBy(xpath = "(//div[text()='Stories'])[2]")
+    public WebElement storiesElement;
+
+    @FindBy(xpath = "(//div[text()='Seyahat sırları'])[2]")
+    public WebElement seyahatsirlariElement;
+
+    @FindBy(xpath = "(//div[text()='Fırsatlar'])[2]")
+    public WebElement firsatlarElement;
+
+
+    @FindBy(xpath = "(//div[text()='Oturum aç'])[1]")
+    public WebElement login;
+
+    @FindBy(xpath = "//div[text()='Google']")
+    public WebElement google;
+    @FindBy(xpath = "//div[text()='E-posta']")
+    public WebElement ePostaLink;
+
+    @FindBy(xpath = "//input[@inputmode='email']")
+    public WebElement eMail;
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement devamlink;
+    @FindBy(xpath = "//*[text()='Oturum açın']")
+    public WebElement oturumAc;
+    @FindBy(xpath = "//input[@type='email']")
+    public WebElement emailsend;
+    @FindBy(xpath = "//*[text()='Sonraki']")
+    public WebElement sonrakibutton;
+
+    @FindBy(xpath = "(//div[@role='presentation'])[1]")
+    public WebElement oturumAcilamadi;
+
+//
+
+    public void acceptCookie() {
 
         acceptCookies.click();
     }
 
-    public void goToKiwiUrl(String url){
+    public void goToKiwiUrl(String url) {
+
         Driver.getDriver().get(ConfigReader.getProperty(url));
     }
 
-    public void verifyKiwiPage(){
+    public void verifyKiwiPage() {
         String expectedTitle = "Kiwi.com";
         String actualTitle = Driver.getDriver().getTitle();
         assertTrue(actualTitle.contains(expectedTitle));
     }
 
-    public void iconsDisplayTest(){
-        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+    public void iconsDisplayTest() {
+
         bekle(1);
 
         jse.executeScript("arguments[0].scrollIntoView(true);", instagramIcon);
@@ -69,7 +131,8 @@ public class HomePage {
         bekle(1);
 
     }
-    public void iconsActiveTest(){
+
+    public void iconsActiveTest() {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         bekle(1);
 
@@ -112,13 +175,16 @@ public class HomePage {
     }
 
 
+
     // aysegul
-    @FindBy(xpath = "//h2[@id=':rq:']")
+    @FindBy(xpath = "//*[@id=':rm:']")
     public WebElement thanksText;
     @FindBy (xpath = "//*[@data-test='feedbackButton']")
     public WebElement feedbackButton;
     @FindBy (xpath = "//*[text()='3']")
     public WebElement threePoint;
+    @FindBy(xpath ="//*[text()='Gönder']")
+    public  WebElement submitButton;
 
     public void feedbackButtonClick(){
         feedbackButton.click();
@@ -126,6 +192,7 @@ public class HomePage {
     }
     public void pointCheck(){
         threePoint.click();
+        submitButton.click();
         bekle(1);
         System.out.println(thanksText.getText());
         bekle(1);
@@ -134,4 +201,49 @@ public class HomePage {
     }
 
 
+
+    public void visibleAndActiveTest() {
+        System.out.println(kiviCom.getText());
+        assertTrue(kiviCom.isEnabled());
+        System.out.println(seyahatElement.getText());
+        assertTrue(seyahatElement.isEnabled());
+        System.out.println(araclarElement.getText());
+        assertTrue(araclarElement.isEnabled());
+        System.out.println(konaklamalarElement.getText());
+        assertTrue(konaklamalarElement.isEnabled());
+        System.out.println(storiesElement.getText());
+        assertTrue(storiesElement.isEnabled());
+        System.out.println(seyahatsirlariElement.getText());
+        assertTrue(seyahatsirlariElement.isEnabled());
+        System.out.println(firsatlarElement.getText());
+        assertTrue(firsatlarElement.isEnabled());
+
+    }
+
+    public void profileActiveTesting() {
+          bekle(2);
+          login.click();
+          bekle(2);
+          jse.executeScript("arguments[0].scrollIntoView(true);", google);
+          bekle(2);
+          google.click();
+          bekle(1);
+          Driver.getDriver().switchTo().newWindow(WindowType.TAB);
+          Driver.getDriver().get("https://mail.google.com/mail/u/2/?ogbl#inbox");
+          bekle(1);
+          emailsend.click();
+          emailsend.sendKeys("askfedakarlikister@gmail.com");
+          sonrakibutton.click();
+          assertTrue(oturumAcilamadi.isDisplayed());
+          bekle(3);
+          System.out.println(oturumAcilamadi.getText());
+    }
+
+
+
+    public void goTokiwiUrl(String url){
+        Driver.getDriver().get(ConfigReader.getProperty(url));
+    }
+
 }
+
