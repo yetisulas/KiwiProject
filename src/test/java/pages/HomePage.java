@@ -1,5 +1,10 @@
 package pages;
 
+
+import org.openqa.selenium.support.PageFactory;
+import utilities.ConfigReader;
+import utilities.Driver;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -17,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static utilities.ReusableMethods.bekle;
 import static utilities.ReusableMethods.switchToWindow;
+
 
 public class HomePage {
     Actions actions;
@@ -201,5 +207,11 @@ public class HomePage {
     }
 
 
+    public HomePage() {
+        PageFactory.initElements(Driver.getDriver(), this);
+    }
+    public void goTokiwiUrl(String url){
+        Driver.getDriver().get(ConfigReader.getProperty(url));
+    }
 }
 
