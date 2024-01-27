@@ -1,9 +1,14 @@
 package stepdefinition;
 
 import io.cucumber.java.en.Given;
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
 import pages.HomePage;
 
+import utilities.ConfigReader;
+
 import utilities.Driver;
+import utilities.ReusableMethods;
 
 
 public class Kiwi {
@@ -34,6 +39,7 @@ public class Kiwi {
     @Given("It is tested whether {string}, {string}, {string}, {string} in the Footer section are displayed.")
     public void it_is_tested_whether_in_the_footer_section_are_displayed(String instagram, String twitter, String linkedin, String facebook) {
         homePage.iconsDisplayTest();
+
     }
     @Given("It is tested whether {string}, {string}, {string}, {string} in the Footer section are active.")
     public void it_is_tested_whether_in_the_footer_section_are_active(String instagram, String twitter, String linkedin, String facebook) {
@@ -48,7 +54,6 @@ public class Kiwi {
     homePage.profileActiveTesting();
     }
 
-    }
 
 
 
@@ -152,38 +157,6 @@ public class Kiwi {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-HomePage homePage = new HomePage();
-
-
-
-
-
-
-
-    @Given("Open the browser and go to {string}")
-    public void open_the_browser_and_go_to(String url) {
-        homePage.goTokiwiUrl(url);
-    }
     @Given("Verify that I have reached the Kiwi home page by logging in")
     public void verify_that_i_have_reached_the_kiwi_home_page_by_logging_in() {
 
@@ -201,5 +174,18 @@ HomePage homePage = new HomePage();
 
     }
 
+
+    //Gulsah =>US_04
+    @Given("Verify that the go-return and economy button is visible")
+    public void verify_that_the_go_return_and_economy_button_is_visible() {
+        homePage.GoReturnButton.isDisplayed();
+        homePage.EconomyButton.isDisplayed();
+    }
+
+    //US_06
+    @Given("It is tested {string}, {string}, {string}, {string} in the Footer section are displayed.")
+    public void it_is_tested_in_the_footer_section_are_displayed(String Company, String Platform, String Help, String Discover) {
+        homePage.footerDisplayTest();
+    }
 
 }
