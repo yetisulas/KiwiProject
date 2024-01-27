@@ -177,6 +177,7 @@ public class HomePage {
 
 
 
+
     @FindBy(xpath = "//*[@id=':rm:']")
     public WebElement thanksText;
     @FindBy (xpath = "//*[@data-test='feedbackButton']")
@@ -199,6 +200,43 @@ public class HomePage {
         String actualText = thanksText.getText();
         Assert.assertTrue(actualText.contains("Teşekkürler! Kabul ederseniz gelecekteki anketlerimizden biri için sizinle irtibata geçebiliriz."));
     }
+
+    //Gulsah
+//US_04
+    @FindBy(xpath = "(//*[text()='Gidiş Dönüş'])[1]")
+    public WebElement GoReturnButton;
+
+    @FindBy(xpath = "(//*[text()='Ekonomi'])[2]")
+    public WebElement EconomyButton;
+
+//US_06
+    @FindBy(xpath = "//h4[normalize-space()='Şirket']")
+    public  WebElement CompanyButton;
+
+    @FindBy(xpath = "//h4[normalize-space()='Platform']")
+    public  WebElement PlatformButton;
+
+    @FindBy(xpath = "//h4[normalize-space()='Yardım ve destek']")
+    public  WebElement YardimveDestekButton;
+
+    @FindBy(xpath = "//h4[normalize-space()='Keşfet']")
+    public  WebElement KesfetButton;
+
+    public void footerDisplayTest(){
+        JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+        bekle(1);
+
+        jse.executeScript("arguments[0].scrollIntoView(true);", instagramIcon);
+        bekle(2);
+        assertTrue(CompanyButton.isDisplayed());
+        bekle(1);
+        assertTrue(PlatformButton.isDisplayed());
+        bekle(1);
+        assertTrue(YardimveDestekButton.isDisplayed());
+        bekle(1);
+        assertTrue(KesfetButton.isDisplayed());
+        bekle(1);}
+
 
 
 

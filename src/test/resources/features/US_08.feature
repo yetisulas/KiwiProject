@@ -1,6 +1,6 @@
 
 Feature: Testing
-@yts
+
   Scenario: I should be able to verify that I can click on the feedback button and give a rating
     * Open the browser and go to "kiwiUrl"
     * Accept the cookies
