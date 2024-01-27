@@ -1,9 +1,14 @@
 package pages;
 
 
+import io.cucumber.plugin.event.Node;
+import org.junit.Assert;
+
+
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
 import utilities.Driver;
+
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
@@ -170,6 +175,32 @@ public class HomePage {
     }
 
 
+
+
+
+    @FindBy(xpath = "//*[@id=':rm:']")
+    public WebElement thanksText;
+    @FindBy (xpath = "//*[@data-test='feedbackButton']")
+    public WebElement feedbackButton;
+    @FindBy (xpath = "//*[text()='3']")
+    public WebElement threePoint;
+    @FindBy(xpath ="//*[text()='Gönder']")
+    public  WebElement submitButton;
+
+    public void feedbackButtonClick(){
+        feedbackButton.click();
+        bekle(1);
+    }
+    public void pointCheck(){
+        threePoint.click();
+        submitButton.click();
+        bekle(1);
+        System.out.println(thanksText.getText());
+        bekle(1);
+        String actualText = thanksText.getText();
+        Assert.assertTrue(actualText.contains("Teşekkürler! Kabul ederseniz gelecekteki anketlerimizden biri için sizinle irtibata geçebiliriz."));
+    }
+
     //Gulsah
 //US_04
     @FindBy(xpath = "(//*[text()='Gidiş Dönüş'])[1]")
@@ -205,6 +236,7 @@ public class HomePage {
         bekle(1);
         assertTrue(KesfetButton.isDisplayed());
         bekle(1);}
+
 
 
 
@@ -244,6 +276,7 @@ public class HomePage {
           bekle(3);
           System.out.println(oturumAcilamadi.getText());
     }
+
 
 
     public void goTokiwiUrl(String url){

@@ -1,7 +1,9 @@
 
-Feature: Testing kiwi
+Feature: Register Testing
+  Scenario: Register on the home page testing.
 
-  Scenario:
-       * Open the browser and go to "kiwiUrl"
-       * Verify that I have reached the Kiwi home page by logging in
-       * Verify whether a new account can be opened.
+    * Open the browser and go to "kiwiUrl"
+    * Accept the cookies
+    * Click on login link and  the Google and verify that account not opened
+    * Close the browser
+
