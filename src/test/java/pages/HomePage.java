@@ -36,15 +36,15 @@ public class HomePage {
     }
 
 
-    @FindBy(xpath = "(//*[@class='Icon__StyledIcon-sc-psgqgs-0 etxBjy'])[28]")
+    @FindBy(xpath = "//*[@data-test='Footer-IconInstagram']")
     public WebElement instagramIcon;
 
-    @FindBy(xpath = "(//*[@class='Icon__StyledIcon-sc-psgqgs-0 etxBjy'])[29]")
+    @FindBy(xpath = "//*[@data-test='Footer-IconTwitter']")
     public WebElement twitterIcon;
 
-    @FindBy(xpath = "(//*[@class='Icon__StyledIcon-sc-psgqgs-0 etxBjy'])[30]")
+    @FindBy(xpath = "//*[@data-test='Footer-IconLinkedin']")
     public WebElement linkedinIcon;
-    @FindBy(xpath = "(//*[@class='Icon__StyledIcon-sc-psgqgs-0 etxBjy'])[31]")
+    @FindBy(xpath = "//*[@data-test='Footer-IconFacebook']")
     public WebElement facebookIcon;
 
     @FindBy(xpath = "//*[text()='Kabul et']")
@@ -175,7 +175,7 @@ public class HomePage {
 
 
 
-    @FindBy(xpath = "//*[@id=':rm:']")
+    @FindBy(xpath = "//h2[text()='Teşekkürler! Kabul ederseniz gelecekteki anketlerimizden biri için sizinle irtibata geçebiliriz.']")
     public WebElement thanksText;
     @FindBy (xpath = "//*[@data-test='feedbackButton']")
     public WebElement feedbackButton;

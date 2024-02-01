@@ -1,3 +1,4 @@
+@07
 Feature: US_07 As a visitor, I should be able to verify that
         the titles in the profile become active after logging in."
 
