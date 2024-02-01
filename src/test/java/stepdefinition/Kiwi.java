@@ -1,13 +1,23 @@
 package stepdefinition;
 
 import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.w3c.dom.html.HTMLInputElement;
+
+import org.junit.Assert;
+import org.openqa.selenium.Keys;
+
 import pages.HomePage;
+
+import utilities.ConfigReader;
+
 import utilities.Driver;
+import utilities.ReusableMethods;
+
 
 public class Kiwi {
     HomePage homePage = new HomePage();
@@ -40,6 +50,7 @@ public class Kiwi {
     @Given("It is tested whether {string}, {string}, {string}, {string} in the Footer section are displayed.")
     public void it_is_tested_whether_in_the_footer_section_are_displayed(String instagram, String twitter, String linkedin, String facebook) {
         homePage.iconsDisplayTest();
+
     }
 
     @Given("It is tested whether {string}, {string}, {string}, {string} in the Footer section are active.")
@@ -52,6 +63,10 @@ public class Kiwi {
         homePage.visibleAndActiveTest();
     }
 
+
+
+
+
     @Given("Click on login link and  the Google and verify that account not opened")
     public void click_on_the_login_link() {
         homePage.profileActiveTesting();
@@ -61,6 +76,7 @@ public class Kiwi {
     public void ıt_should_be_verified_that_the_heading_all_flights_in_one_search_appears_at_the_bottom_of_the_home_page() {
         homePage.tekAramadaTumUcuslar();
     }
+
 
     @Then("It should be verified that the heading Travel more, spend less appears at the bottom of the home page.")
     public void ıt_should_be_verified_that_the_heading_travel_more_spend_less_appears_at_the_bottom_of_the_home_page() {
@@ -117,9 +133,30 @@ public class Kiwi {
     public void user_must_verify_the_activation_of_the_daha_fazlasini_oku_body_element_on_the_home_page() {
      homePage.dahaFazlasiniOkuBodyElementi();
 
+
+    @Given("Click on the feedback button")
+    public void click_on_the_feedback_button() {
+      homePage.feedbackButtonClick();
+    }
+    @Given("Verify that give a rating")
+    public void verify_that_give_a_rating() {
+      homePage.pointCheck();
+
     }
 }
 
+    //Gulsah =>US_04
+    @Given("Verify that the go-return and economy button is visible")
+    public void verify_that_the_go_return_and_economy_button_is_visible() {
+        homePage.GoReturnButton.isDisplayed();
+        homePage.EconomyButton.isDisplayed();
+    }
+
+    //US_06
+    @Given("It is tested {string}, {string}, {string}, {string} in the Footer section are displayed.")
+    public void it_is_tested_in_the_footer_section_are_displayed(String Company, String Platform, String Help, String Discover) {
+        homePage.footerDisplayTest();
+    }
 
 
-
+}
