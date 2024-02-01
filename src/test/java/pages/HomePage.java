@@ -1,9 +1,6 @@
 package pages;
 
-
-import io.cucumber.plugin.event.Node;
 import org.junit.Assert;
-
 
 import org.openqa.selenium.support.PageFactory;
 import utilities.ConfigReader;
@@ -23,7 +20,7 @@ import utilities.ReusableMethods;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+
 import static org.junit.Assert.assertTrue;
 import static utilities.ReusableMethods.bekle;
 import static utilities.ReusableMethods.switchToWindow;
@@ -198,7 +195,7 @@ public class HomePage {
         System.out.println(thanksText.getText());
         bekle(1);
         String actualText = thanksText.getText();
-        Assert.assertTrue(actualText.contains("Teşekkürler! Kabul ederseniz gelecekteki anketlerimizden biri için sizinle irtibata geçebiliriz."));
+        assertTrue(actualText.contains("Teşekkürler! Kabul ederseniz gelecekteki anketlerimizden biri için sizinle irtibata geçebiliriz."));
     }
 
     //Gulsah
