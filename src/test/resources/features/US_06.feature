@@ -1,3 +1,4 @@
+@06
 Feature: As a visitor I should be able to verify that the title elements in the footer section
   of the Home page are visible.
 

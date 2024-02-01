@@ -1,4 +1,4 @@
-@Kiwi
+@05
 Feature: Social media icons
 
     Scenario: Social media icons testing
