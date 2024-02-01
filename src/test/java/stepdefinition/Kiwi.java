@@ -135,7 +135,8 @@ public class Kiwi {
 
     @When("User must verify the activation of the Daha fazlasini oku body element on the home page")
     public void user_must_verify_the_activation_of_the_daha_fazlasini_oku_body_element_on_the_home_page() {
-     homePage.dahaFazlasiniOkuBodyElementi();
+        homePage.dahaFazlasiniOkuBodyElementi();
+    }
 
 
     @Given("Click on the feedback button")
@@ -147,7 +148,7 @@ public class Kiwi {
       homePage.pointCheck();
 
     }
-}
+
 
     //Gulsah =>US_04
     @Given("Verify that the go-return and economy button is visible")
