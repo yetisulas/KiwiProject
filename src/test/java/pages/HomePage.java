@@ -1,9 +1,8 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.WindowType;
+import dev.failsafe.internal.util.Assert;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -200,6 +199,95 @@ public class HomePage {
           System.out.println(oturumAcilamadi.getText());
     }
 
+   @FindBy(xpath = "//*[text()='Kabul et']")
+   public WebElement cerezKabul;
 
+    @FindBy(xpath = "//*[text()='Tek aramada tüm uçuşlar']")
+    public WebElement tekAramadaTumUcuslar;
+
+    @FindBy(xpath = "//*[text()='Daha fazla seyahat edin, daha az harcayın']")
+    public WebElement dahaFazlaSeyahatEdin;
+    @FindBy(xpath = "//*[text()='Milyonlarca kullanıcının güvendiği platform']")
+    public WebElement milyonlarcaKullanici;
+    @FindBy(xpath = "(//h2[@class='orbit-heading font-base m-0 text-heading-foreground text-heading-title2 leading-heading-title2 font-heading-title2 text-start mb-xs'])[1]")
+    public WebElement ankaracikisli;
+    @FindBy(xpath = "//h2[@class='orbit-heading font-base m-0 text-heading-foreground text-heading-title1 leading-heading-title1 font-heading-title1 text-start mb-md']")
+    public WebElement mobilUygulamamiz;
+
+    @FindBy(xpath = "(//h2[@class='orbit-heading font-base m-0 text-heading-foreground text-heading-title2 leading-heading-title2 font-heading-title2 text-start mb-xs'])[2]")
+    public WebElement populerUcuslar;
+
+    @FindBy(xpath = "//h2[@class='orbit-heading font-base m-0 text-heading-foreground text-heading-title2 leading-heading-title2 font-heading-title2 text-start mb-sm']")
+    public WebElement ucuzUcuslar;
+
+    @FindBy(xpath = "(//img[@class='absolute m-auto block h-0 max-h-full min-h-full w-0 min-w-full max-w-full border-none p-0 safe-inset-0'])[1]")
+    public WebElement tekAramaResim;
+    public void tekAramadaTumUcuslar() {
+        cerezKabul.click();
+        jse.executeScript("arguments[0].scrollIntoView(true);", tekAramaResim);
+        bekle(2);
+        assertTrue(tekAramadaTumUcuslar.isDisplayed());
+        System.out.println(tekAramadaTumUcuslar.getText());
+
+    }
+    public void dahaFazlaSeyahatEdin() {
+
+        assertTrue(dahaFazlaSeyahatEdin.isDisplayed());
+
+    }
+    public void milyonlarcaKullanici() {
+
+        assertTrue(milyonlarcaKullanici.isDisplayed());
+    }
+    public void ankaracikisli() {
+
+        assertTrue(ankaracikisli.isDisplayed());
+    }
+    public void mobilUygulamamiz() {
+
+        assertTrue(mobilUygulamamiz.isDisplayed());
+    }
+    public void populerUcuslar() {
+        bekle(2);
+        jse.executeScript("arguments[0].scrollIntoView(true);", populerUcuslar);
+        bekle(2);
+        assertTrue(populerUcuslar.isDisplayed());
+    }
+    public void ucuzUcuslar() {
+        bekle(2);
+        jse.executeScript("arguments[0].scrollIntoView(true);", ucuzUcuslar);
+        bekle(2);
+        assertTrue(ucuzUcuslar.isDisplayed());
+    }
+    @FindBy(xpath = "(//div[@class='absolute safe-inset-0 de:translate-y-0 de:transition-transform de:duration-normal de:group-hover:-translate-y-1/4'])[1]")
+    public WebElement istanbulBodyElementi;
+
+    @FindBy(xpath = "(//div[@class='absolute bg-gradient-to-b from-[rgba(0,0,0,0)] via-[rgba(0,0,0,0.2)] via-45% to-[rgba(0,0,0,0.6)] safe-inset-0'])[2]")
+    public WebElement abüDabiBodyElementi;
+    @FindBy(xpath = "(//div[@class='absolute bg-gradient-to-b from-[rgba(0,0,0,0)] via-[rgba(0,0,0,0.2)] via-45% to-[rgba(0,0,0,0.6)] safe-inset-0'])[3]")
+    public WebElement podgoricaBodyElementi;
+    @FindBy(xpath = "(//div[@class='orbit-button-primitive-content inline-block [justify-content:var(--button-content-align)] flex-1'])[11]")
+    public WebElement dahaFazlasiniOkuBodyElementi;
+
+    public void istanbulBodyElementi() {
+        cerezKabul.click();
+        jse.executeScript("arguments[0].scrollIntoView(true);", istanbulBodyElementi);
+        assertTrue(istanbulBodyElementi.isEnabled());
+        System.out.println(istanbulBodyElementi.getText());
+    }
+
+    public void abüDabiBodyElementi() {
+        assertTrue(abüDabiBodyElementi.isEnabled());
+    }
+
+    public void podgoricaBodyElementi() {
+
+        assertTrue(podgoricaBodyElementi.isEnabled());
+    }
+
+    public void dahaFazlasiniOkuBodyElementi()
+    {
+        assertTrue(dahaFazlasiniOkuBodyElementi.isEnabled());
+    }
 }
 
